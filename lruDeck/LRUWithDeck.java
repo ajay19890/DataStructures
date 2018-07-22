@@ -34,6 +34,8 @@ public class LRUWithDeck {
         if(cache.containsKey(key)){
             list.remove(key);
             list.addFirst(key);
+            //we have to update map, if same key with different value comes
+            cache.put(key, val);
         }else{
             if(cache.size() >= capacity){
                 cache.remove(list.removeLast());
